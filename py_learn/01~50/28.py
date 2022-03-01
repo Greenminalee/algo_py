@@ -11,3 +11,13 @@
 # 출력
 # 첫째 줄부터 T개의 줄에 A와 B의 최소공배수를 입력받은 순서대로 한 줄에 하나씩 출력한다.
 
+import math
+time = int(input())
+
+
+for i in range(0, time):
+    a, b = map(int, input().split())
+    print(math.lcm(a, b))
+
+
+

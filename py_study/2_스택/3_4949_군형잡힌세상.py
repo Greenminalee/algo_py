@@ -19,10 +19,9 @@
 # 출력
 # 각 줄마다 해당 문자열이 균형을 이루고 있으면 "yes"를, 아니면 "no"를 출력한다.
 
-stack = []
 
 s = []
-
+stack = []
 while (True):
     tmp = input()
     if (tmp[0] == '.'):
@@ -30,10 +29,28 @@ while (True):
     s.append(tmp)
 
 for i in s:
+    stack.clear()
     for j in i:
-        if (j == '['):
-            stack.append('[')
-        
+        if (j == '[' or j == '('):
+            stack.append(j)
+        elif (j == ']'):
+            if (len(stack) != 0):
+                if (stack[-1] == '['):
+                    stack.pop()
+                else:
+                    stack.append(j)    
+            else:
+                stack.append(j)
+        elif (j == ')'):
+            if (len(stack) != 0):
+                if (stack[-1] == '('):
+                    stack.pop()
+                else:
+                    stack.append(j)
+            else:
+                stack.append(j)
+    if (len(stack) == 0):
+        print("yes")
+    else:
+        print("no")
 
-# while (True):
-#     if ():
